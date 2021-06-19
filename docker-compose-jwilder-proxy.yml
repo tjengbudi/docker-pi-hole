@@ -44,6 +44,10 @@ services:
       - 'ghost ghost.yourDomain.lan:192.168.41.55'
       - 'wordpress wordpress.yourDomain.lan:192.168.41.55'
     restart: always
+    ulimits:
+      nofile:
+        soft: 1024
+        hard: 4096
 
 #   Another container you might want to have running through the proxy
 #   Note it also have ENV Vars like pihole and a host under pihole's extra_hosts
